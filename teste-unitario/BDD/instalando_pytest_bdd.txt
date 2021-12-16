@@ -1,0 +1,41 @@
+1. sudo pip3 install pytest-bdd
+2. criar uma pasta tests: mkdir tests
+3. criar a seguinte estrutura
+   - tests/unit
+   - tests/integration
+   - tests/functional
+   - tests/features
+4. escreva uma feature -  blog1.feature
+Feature: Blog
+    Publicação de Artigos Categorizados que permitem comentários dos leitores
+
+5. escreva uma nova feature - blog2.feature - descrevendo a funcionalidade
+no padrao Cucumber
+Feature: Blog
+    Publicação de Artigos Categorizados que permitem comentários dos leitores
+
+Scenario: Publicando um Post
+    Given que eu tenha logado no sistema
+    And eu tenha um artigo para publicar
+    When eu vou para a página de criação de Posts
+    And e preencho o formulário e criação de Post
+    And clico no botão publicar
+    Then Eu não devo ver nenhuma mensagem de erro
+    And O artigo deve ser publicado
+
+6. escrevendo outro cenario
+Scenario: Fazendo um Comentário no Post
+    Given que eu senha um visitante anônimo no blog
+    And eu queira publicar um comentário em determinado blog
+    When eu abro a página do blog
+    And começo a digitar meus comentários na seção de comentários do Post
+    And eu não preencho a parte de identificação do autor do comentário
+    And eu clico no botão Comentar para publicar meu comentário
+    Then Eu devo ver uma mensagem de que o meu comentário ficará aguardando verificação do autor do Post
+    And o Comentário deve ser publicado
+
+7. transformando em codigo python para teste unitario
+$ pytest-bdd generate features/blog3.feature > functional/test_blog3.py
+
+8. agora posso contruir o blog3.py usando TDD para a unidade
+test_blog3.py [pytest]

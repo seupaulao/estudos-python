@@ -1,0 +1,56 @@
+#
+# pyTimesTrade
+# hora   quantidade    preço    comprador  vendedor  agressor 
+# 
+# pyBookOfertas
+# comprador  preço-compra qte-compra qte-venda preço-venda vendedor
+#
+# pyBookPreços
+# id  qte-compra preço-compra preço-venda qte-venda
+# 
+# pyOrdemOriginal
+# hora quantidade preço comprador vendedor agressor
+#
+# pyTelaOperacional
+# comprar limitado  melhor preço - a A   
+# comprar a mercado melhor preço - s S  c C  F5 
+# vender  a mercado melhor preço - d D  v V  F9
+# vender limitado   melhor preço - f F
+# executar ordem                 - x X       F8
+# cancelar ordem                 - z Z       F7
+# subir preço                    - seta acima
+# descer preço                   - seta abaixo
+# escolher preço                 - 1 2 3 4 5 6 7
+# ajuda                          - h H       F1
+#
+# pyHistoricoExecucao
+# qte posição valor ordem
+#
+# pyPosicao - $$$
+# qte posicao valor 
+#
+# pyStopLoss
+#
+# pyConfig - configurar dados do cliente e da corretora
+# 
+# pyMain / pyLogin
+# - Tela Login e Senha
+# - Configurar dados corretora
+# - Escolher Ativo
+# - Stop loss
+# - Iniciar Operação - Demo
+    - chamar times e trade
+    - chamar ordem original
+    - chamar book ofertas
+    - chamar book preço
+    - chamar posicao
+    - chamar  tela operacional
+    - chamar historico ordens
+# - Iniciar Operação - Trade
+# - Sair
+#
+# colored(TEXTO,COLOR_TEXTO,COLOR_HIGHLIGH,LISTA_ATTRS)
+# ex: print colored('Ola mundo','green','on_yellow',attrs=['bold'])
+#
+#
+

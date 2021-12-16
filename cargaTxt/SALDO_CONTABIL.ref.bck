@@ -1,0 +1,17 @@
+IT-AN-QDD                               N 0002
+IT-CO-UNIDADE-GESTORA                   N 0006
+IT-CO-GESTAO                            N 0005
+GR-CODIGO-CONTA                         A 0009
+IT-CO-CONTA-CORRENTE-CONTABIL           A 0043
+IT-VA-DEBITO-INICIAL                    N 16,2
+IT-VA-CREDITO-INICIAL                   N 16,2
+IT-VA-DEBITO-MENSAL(1)                  N 16,2
+IT-VA-CREDITO-MENSAL(1)                 N 16,2
+IT-DA-TRANSACAO                         A 0008
+IT-HO-TRANSACAO                         N 0006
+IT-VA-DEBITO-INICIAL-CAMBIO             N 16,6
+IT-VA-CREDITO-INICIAL-CAMBIO            N 16,6
+IT-VA-DEBITO-MENSAL-CAMBIO(1)           N 16,6
+IT-VA-CREDITO-MENSAL-CAMBIO(1)          N 16,6
+IT-VA-CAMBIO-ACUMULO-CENTAVOS           N 05,7
+IT-VA-CAMBIO-ACUMULO-CENTAVO-ANT        N 05,7

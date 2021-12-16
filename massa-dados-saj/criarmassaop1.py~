@@ -1,0 +1,131 @@
+#!/usr/bin/python
+
+import random
+
+padraoAviso = """INSERT INTO sajintegra.aviso(  tp_comunicacao,  dh_disponibilizacao,  dh_recebimento,  dh_ajuizamento,  co_orgao_julgador,  vl_causa,
+  id_solicitacao_aviso,  in_situacao,  id_processo,  co_nivel_sigilo,  co_localidade,  id_comunicacao,  nr_classe_processual,  nr_classe_processual_original,
+  ds_teor_comunicacao,  dh_ciencia_comunicacao,  dh_referencia_comunicacao,  tp_prazo_comunicacao,  nr_prazo,  dh_vencimento_comunicacao)VALUES(
+  %s,  %s,  %s,  %s,  %s,  %s,  
+  %s,  %s,  %s,  %s,  %s,  %s,  %s,  %s,  
+  %s,  %s,  %s,  %s,  %s,  %s);"""
+
+padraoSolicitacaoComunicacao = """
+INSERT INTO sajintegra.solicitacao_comunicacao(  dh_solicitacao_comunicacao,  dh_atualizacao,  dh_proxima_execucao, in_situacao,  id_orgao_justica,  id_usuario,  id_aviso)
+VALUES(  getdate(),  getdate(),  getdate(),  '%s',  %d,  %d,  %d);
+"""
+
+padraoHistoricoSolicitacaoComunicacao = """
+INSERT INTO sajintegra.historico_solicitacao_comunicacao(  id_solicitacao_comunicacao,  dh_andamento,  in_situacao,  tx_mensagem,  in_situacao_aviso)
+VALUES(  %d,  getdate(),  '%s',  '%s',  '%s');
+"""
+def posicao(lista):
+    return random.randint(0, len(lista)) 
+def getCoOrgaoJulgador():
+    lista = ["'18'","'PE9'","'PE8'","'RN9'","'RN8'"]
+    return lista[posicao(lista)]
+
+def getValor():
+    lista = [15000,13999.99,178282.0,21000.98]
+    return lista[posicao(lista)]
+
+def getIdSolicitacaoAviso():
+    lista = [138,139,140,141,142]
+    return lista[posicao(lista)]
+
+def getIdprocesso():
+    lista = [3100,3154,3188,3167]
+    return lista[posicao(lista)]
+
+def getCoLocalidade():
+    lista = ["'248102'","'261201'","'2611101'","'2312908'"]
+    return lista[posicao(lista)]
+
+def getClasseProcessual():
+    return [20170117477455,20170117477456,20170117477457,20170117477458]
+    return lista[posicao(lista)]
+
+def escreve(fo, st):
+    print st
+    fo.write(st)
+    fo.write("\n")
+
+def criarAvisos(fo, qte):
+    for i in range(qte):
+        escreve(fo, padraoAviso % ("'INT'", "getDate()", "getDate()", "null", getCoOrgaoJulgador(), getValor(), getIdSolicitacaoAviso(), "'TRF'",getIdProcesso(),0,getCoLocalidade(),getClasseProcessual(),"null","null","'teor'","null","null","'PRZ'",10,"getDate()"))
+
+def criarSComunicacao(fo, firstKeyRangeAviso,qte):
+    chave = firstKeyRangeAviso
+    for i in range(qte): 
+        escreve(fo, padraoSolicitacaoComunicacao % ("ST1",1,1,chave))
+        chave += 1 
+
+def criarHSComunicacao(fo, firstKeySC, qte):
+    chave = firstKeySC
+    for i in range(qte):
+        temp1 = padraoHistoricoSolicitacaoComunicacao % (chave, "ST1","VALOR ESCRITO X " + str(chave), "ST1")
+        temp2 = padraoHistoricoSolicitacaoComunicacao % (chave, "ST2","VALOR ESCRITO Y " + str(chave), "ST2")
+        escreve(fo, temp1)
+        escreve(fo, temp2)
+        chave += 1
+
+def menu_gerarAviso():
+    print "\nGerando SQL Avisos\n"
+    qte = 1000
+    try:
+       qte = int(raw_input("Digite a quantidade:"))
+    except:
+       print "\nNumero Invalido. Estabelecendo 1000 inserts. Arquivo : avisos.sql."
+       qte=1000
+    fo = open("avisos.sql","w")
+    criarAvisos(fo, qte)
+    fo.close()
+
+def menu_gerarSolicitacao():
+    print "\nGerando SQL Solicitacao de Comunicacao\n"
+    try:
+       qte = int(raw_input("Digite a quantidade:"))
+       inicio = int(raw_input("Digite o ponto de inicio:"))
+       fo = open("solicitacoes.sql","w")
+       criarSComunicacao(fo, inicio, qte)
+       fo.close()
+    except:
+       print "\nNumero Invalido. Refaca a operacao."
+
+def menu_gerarHistorico():
+    print "\nGerando SQL Historico Solicitacao de Comunicacao\n"
+    try:
+       qte = int(raw_input("Digite a quantidade:"))
+       inicio = int(raw_input("Digite o ponto de inicio:"))
+       fo = open("historicos.sql","w")
+       criarHSComunicacao(fo, inicio, qte)
+       fo.close()
+    except:
+       print "\nNumero Invalido. Refaca a operacao."
+       
+def menu():
+    op = 0
+    print "\nGerar Massa Dados SAJ \n"
+    while op < 9:
+       print "1. Gerar Avisos"
+       print "2. Gerar Solicitacao de Comunicacao"
+       print "3. Gerar Historico de Solicitacao de Comunicacao"
+       print "9. Sair"
+       print "\n"
+       try:
+          op = int(raw_input("Escolha sua opcao:"))
+       except:
+          op = 0
+       if (op==1):
+          menu_gerarAviso()
+       elif (op==2):
+          menu_gerarSolicitacao()
+       elif (op==3):
+          menu_gerarHistorico()
+       elif (op>=9):
+          print "\nAte a Proxima!"
+       else:
+          print "\nOpcao Invalida. Repita a Operacao."
+
+menu()
+
+

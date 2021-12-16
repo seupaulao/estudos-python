@@ -1,0 +1,75 @@
+autoinfracao = 1336000222015
+bairro = das
+cep = 0
+cidade = dsa
+codigoReceita = "INFRINGIR O DISPOSTO NOS ARTIGOS 45 A 48,DA LEI 6.815/80 (MINIMO: R$ 413,88 - MAXIMO; R$ 827,75)"
+codigoReceitaSTN=140481
+codigosequencialreceita=0
+cpfcnpj=191
+dataemissao=2015-05-27T17:29:13.743-03:00
+datavalidade=null
+ddd=00
+endereco=regno avenue 828
+nome=arqueologo
+pai=null
+mae=null
+numerogru=null
+numerogrucomplementar=null
+pais=reino unido
+telefone=00000000
+tipocomplementacao=null
+tipopessoa=2
+uf=0
+unidadearrecadadora=191
+valor=413.28
+
+http://172.20.1.102:8083/WS-SIAR-PROMASP?wsdl
+
+SOAP USADO
+gru.url.siar.target.endpoint=http://172.20.1.102:8083/WS-SIAR-PROMASP
+gru.url.siar.wsdl=http://172.20.1.102:8083/WS-SIAR-PROMASP?wsdl
+
+
+
+
+STN = 140236                             (Esse código não existe no SIAR)
+cpf = 88888888000191
+emissao = 2015-05-27T18:29:27.838-03:00
+tipopessoa = 1
+
+
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service.ws.siar.dpf.gov.br/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:createGRU>
+         <gru>
+            <autoInfracao>0</autoInfracao>
+            <bairro>felicidade</bairro>
+            <CPFCNPJ>1111222154</CPFCNPJ>
+            <cep>60540125</cep>
+            <cidade>belo horizonte</cidade>
+            <codigoReceita>qualquer coisa</codigoReceita>
+            <codigoReceitaSTN>140481</codigoReceitaSTN>
+            <codigoSequencialReceita>0</codigoSequencialReceita>
+            <dataEmissao>2015-05-27</dataEmissao>
+            <dataVencimento></dataVencimento>
+            <ddd>85</ddd>
+            <endereco>dasd dasda</endereco>
+            <nome>algue</nome>
+            <nomeMae></nomeMae>
+            <nomePai></nomePai>
+            <numeroGRU></numeroGRU>
+            <numeroGRUComplementar></numeroGRUComplementar>
+            <pais>BRASIL</pais>
+            <situacaoPagamento>0</situacaoPagamento>
+            <telefone>32223333</telefone>
+            <tipoComplementacao>0</tipoComplementacao>
+            <tipoPessoa>1</tipoPessoa>
+            <uf>CE</uf>
+            <unidadeArrecadadora>94</unidadeArrecadadora>
+            <valor>420.15</valor>
+         </gru>
+      </ser:createGRU>
+   </soapenv:Body>
+</soapenv:Envelope>
