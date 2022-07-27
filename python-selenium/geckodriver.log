@@ -1,0 +1,9 @@
+1652874884265	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.hL4TzFKqTSle"
+1657891458966	geckodriver	INFO	Listening on 127.0.0.1:53079
+1657891459951	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-no-remote" "-profile" "/tmp/rust_mozprofileDZq2bA"
+1657891526910	Marionette	INFO	Listening on port 40839
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
